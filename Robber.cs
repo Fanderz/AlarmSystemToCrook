@@ -22,6 +22,7 @@ public class Robber : MonoBehaviour
             SetTarget();
             Rotate();
         }
+        
         Move();
     }
 
@@ -37,17 +38,14 @@ public class Robber : MonoBehaviour
         {
             _pointIndex++;
         }
+        else if (_pointIndex == 0)
+        {
+            _reachedLastPoint = false;
+        }
         else
         {
-            if (_pointIndex == 0)
-            {
-                _reachedLastPoint = false;
-            }
-            else
-            {
-                _reachedLastPoint = true;
-                _pointIndex--;
-            }
+            _reachedLastPoint = true;
+            _pointIndex--;
         }
 
         _target = _points[_pointIndex];
